@@ -1,3 +1,1 @@
-
-
-NodeJS + MongoDB API for User Management, prfile (scraped from linkedin) Management     
+deJS + MongoDB API for User Management, prfile (scraped from linkedin) Management     

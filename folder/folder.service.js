@@ -1,5 +1,7 @@
 const db = require('_helpers/db');
+
 const Folder = db.Folder;
+const Profile = db.Profile;
 
 
 module.exports = {
@@ -7,10 +9,41 @@ module.exports = {
     getById,
     create,
     update,
+    addProfile,
+    removeProfile,
     delete: _delete
 };
 
+async function removeProfile(folderId,profileId)
+{
+    const folder = await Folder.findById(folderId);
+    const profile = await Profile.findById(profileId);
 
+    // validate
+    if (!folder) throw 'Folder not found';
+    if (!profile) throw 'profile not found';
+
+    // remove profile form  folder 
+    var index = folder.profiles.indexOf(profileId);
+    folder.profiles.splice(index,1)
+    folder.save();
+
+}
+
+async function addProfile(folderId,profileId)
+{
+    const folder = await Folder.findById(folderId);
+    const profile = await Profile.findById(profileId);
+
+    // validate
+    if (!folder) throw 'Folder not found';
+    if (!profile) throw 'profile not found';
+
+    //add profile
+    folder.profiles.push(profile);
+    folder.save();
+
+}
 
 async function getAll() {
     return await Folder.find();

@@ -12,6 +12,9 @@ router.get('/', getAll);
 router.get('/:id', getById);
 router.put('/:id', update);
 router.delete('/:id', _delete);
+router.put('/addfloder/:id/:idFolder', addToFolder);
+router.put('/removreFolder/:id/:idFolder', removreFromfolder);
+
 
 
 module.exports = router;
@@ -42,6 +45,21 @@ function update(req, res, next) {
         .then(() => res.json({}))
         .catch(err => next(err));
 }
+
+function addToFolder(req, res, next) {
+    profile= profileService.addtofolder(req.params.id,req.params.idFolder,req.body)
+    
+    console.log(req.body)
+    return update(req,res,next)
+}
+
+function removreFromfolder(req, res, next) {
+    profile= profileService.removeFromFolder(req.params.id,req.params.idFolder,req.body)
+    
+    console.log(req.body)
+    return update(req,res,next)
+}
+
 
 function _delete(req, res, next) {
     profileService.delete(req.params.id)

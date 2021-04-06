@@ -4,7 +4,16 @@ const schema = new Schema({
     folderName:{
         type:String
     },
-    profiles: [{ type: Schema.Types.ObjectId, ref: 'Profile' }]
+    description:{
+        type:String
+    },
+    requete:{
+        type:String
+    },
+    userid:{
+        type:String
+    },
+   
 });
 mongoose.model('folder', schema);
 

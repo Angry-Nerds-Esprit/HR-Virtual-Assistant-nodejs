@@ -17,6 +17,8 @@ app.use(jwt());
 app.use('/users', require('./users/users.controller'));
 app.use('/profiles', require('./profile_mangement/profile.controller'));
 app.use('/folder',require('./folder/folder.controller'));
+app.use('/scrape',require('./cunsume_scrapping_api/scrapping.controller'));
+
 
 // global error handler
 app.use(errorHandler);

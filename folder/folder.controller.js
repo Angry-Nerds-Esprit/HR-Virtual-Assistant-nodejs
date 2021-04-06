@@ -13,22 +13,11 @@ router.get('/:id', getById);
 router.put('/:id', update);
 router.delete('/:id', _delete);
 
-router.post('/addProfile/folderId/:folder/profileId/:profile',addProfile);
-router.post('/removeProfile/folderId/:folder/profileId/:profile',removeProfile);
+
 
 
 module.exports = router;
 
-function addProfile(req,res,next){
- folderService.addProfile(req.params.folder,req.params.profile)
-        .then(() => res.json({}))
-        .catch(err => next(err));
-}
-function removeProfile(req,res,next){
-    folderService.removeProfile(req.params.folder,req.params.profile)
-           .then(() => res.json({}))
-           .catch(err => next(err));
-   }
 
 function add(req, res, next) {
     folderService.create(req.body)

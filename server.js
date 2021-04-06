@@ -5,6 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const jwt = require('_helpers/jwt');
 const errorHandler = require('_helpers/error-handler');
+const pdfcv = require('./cv/pdfcv.routes');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -18,7 +19,7 @@ app.use('/users', require('./users/users.controller'));
 app.use('/profiles', require('./profile_mangement/profile.controller'));
 app.use('/folder',require('./folder/folder.controller'));
 app.use('/scrape',require('./cunsume_scrapping_api/scrapping.controller'));
-
+app.use('/pdfcv', pdfcv);
 
 // global error handler
 app.use(errorHandler);

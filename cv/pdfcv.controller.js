@@ -13,26 +13,16 @@ const email = require('node-email-extractor').default;
 
 var uwords = require('uwords');
 
-// storage
-const storage = multer.diskStorage(
-    {
-        destination : (req,file,cb) => {
-            cb(null,"./uploads");
-        },
-        filename : (req,file,cb) => {
-            cb(null,file.originalname);
-        }
-     
-    }
-);
-const upload = multer({storage : storage}).single("avatar");
-
-
-
-exports.pdf_create = function (req, res) {
-    
-    upload(req,res,err => {
-        fs.readFile(`./uploads/${req.file.originalname}`, (err , data ) => {
+exports.pdf_details = function (req, res) {
+    Pdfcv.findById(req.params.id, function (err, pdfcvs) {
+        if (err) return next(err);
+        res.send(pdfcvs);
+    })
+};
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'assets/uploads')
+        fs.readFile(`./assets/uploads/${file.originalname}`, (err , data ) => {
             if(err) return console.log("i am not uploading",err);
             
             worker
@@ -89,14 +79,15 @@ exports.pdf_create = function (req, res) {
             })
             .finally ( () => worker.terminate() );  
         });
-     });
+    },
+    filename: function (req, file, cb) {
+        // You could rename the file name
+        // cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
 
-};
+        // You could use the original name
+        cb(null, file.originalname)
 
+    }
+});
 
-exports.pdf_details = function (req, res) {
-    Pdfcv.findById(req.params.id, function (err, pdfcvs) {
-        if (err) return next(err);
-        res.send(pdfcvs);
-    })
-};
+module.exports= multer({storage: storage});

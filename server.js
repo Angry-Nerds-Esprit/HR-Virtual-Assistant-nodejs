@@ -8,21 +8,21 @@ const errorHandler = require('_helpers/error-handler');
 const pdfcv = require('./cv/pdfcv.routes');
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 app.use(cors());
 
 // use JWT auth to secure the api
-app.use(jwt());
+//app.use(jwt());
 
 // api routes
-app.use('/users', require('./users/users.controller'));
+ app.use('/users', require('./users/users.controller'));
 app.use('/profiles', require('./profile_mangement/profile.controller'));
 app.use('/folder',require('./folder/folder.controller'));
-app.use('/scrape',require('./cunsume_scrapping_api/scrapping.controller'));
-app.use('/pdfcv', pdfcv);
+app.use('/scrape',require('./cunsume_scrapping_api/scrapping.controller')); 
+app.use( pdfcv);
 
 // global error handler
-app.use(errorHandler);
+//app.use(errorHandler);
 
 // start server
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;

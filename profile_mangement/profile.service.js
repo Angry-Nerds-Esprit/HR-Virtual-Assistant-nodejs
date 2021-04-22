@@ -10,10 +10,15 @@ module.exports = {
     update,
     delete: _delete,
     addtofolder,
-    removeFromFolder
+    removeFromFolder,
+    getPrifilesByIdFolder
 };
 
+async function getPrifilesByIdFolder(id){
+    return Profile.find({'idFolder':id})
+   
 
+}
 
 async function getAll() {
     return await Profile.find();

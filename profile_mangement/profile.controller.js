@@ -14,11 +14,17 @@ router.put('/:id', update);
 router.delete('/:id', _delete);
 router.put('/addfloder/:id/:idFolder', addToFolder);
 router.put('/removreFolder/:id/:idFolder', removreFromfolder);
-
+router.get('/folder/:id', getPrifilesByIdFolder);
 
 
 module.exports = router;
 
+function getPrifilesByIdFolder(req,res,next){
+    profileService.getPrifilesByIdFolder(req.params.id)
+    .then(profiles => profiles ? res.json(profiles) : res.sendStatus(404))
+    .catch(err => next(err));
+    
+}
 
 function add(req, res, next) {
     profileService.create(req.body)

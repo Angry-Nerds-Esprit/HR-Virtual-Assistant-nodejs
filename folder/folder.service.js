@@ -32,7 +32,10 @@ async function create(folderParam) {
     }
     // save Folder
     
-    await folder.save();
+    await folder.save(function(err,folderp) {
+        folder.id=folderp.id
+     });
+    return  folder
 }
 
 async function update(id, folderParam) {

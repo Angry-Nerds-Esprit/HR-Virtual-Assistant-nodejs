@@ -21,7 +21,7 @@ module.exports = router;
 
 function add(req, res, next) {
     folderService.create(req.body)
-        .then(() => res.json({}))
+        .then((get) => res.json(get))
         .catch(err => next(err));
 }
 

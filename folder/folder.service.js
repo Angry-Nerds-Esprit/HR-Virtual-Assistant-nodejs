@@ -49,7 +49,6 @@ async function update(id, folderParam) {
 
     // copy folderParam properties to Folder
     Object.assign(Folder, folderParam);
-
     await Folder.save();
 }
 

@@ -19,6 +19,7 @@ app.use(jwt());
 app.use('/profiles', require('./profile_mangement/profile.controller'));
 app.use('/folder',require('./folder/folder.controller'));
 app.use('/scrape',require('./cunsume_scrapping_api/scrapping.controller')); 
+app.use('/rdv',require('./rdv/rdv.controller'));
 app.use( pdfcv);
 
 // global error handler

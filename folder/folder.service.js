@@ -43,13 +43,13 @@ async function update(id, folderParam) {
 
     // validate
     if (!folder) throw 'Folder not found';
-    if (folder.profilename !== folderParam.folderName && await folder.findOne({ folderName: folderParam.folderName })) {
+    if (folder.profilename !== folderParam.folderName && await Folder.findOne({ folderName: folderParam.folderName })) {
         throw 'profilename "' + folderParam.folderName + '" exist already';
     }
 
     // copy folderParam properties to Folder
-    Object.assign(Folder, folderParam);
-    await Folder.save();
+    Object.assign(folder, folderParam);
+    await folder.save();
 }
 
 async function _delete(id) {

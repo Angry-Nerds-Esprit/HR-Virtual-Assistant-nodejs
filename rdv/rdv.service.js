@@ -35,12 +35,12 @@ async function update(id, rdvParam) {
 
     // validate
     if (!rdv) throw 'RDV not found';
-    if (rdv.profilename !== rdvParam.rdvName && await rdv.findOne({ rdvName: rdvParam.rdvName })) {
+    if (rdv.profilename !== rdvParam.rdvName && await RDV.findOne({ rdvName: rdvParam.rdvName })) {
         throw 'profilename "' + rdvParam.rdvName + '" exist already';
     }
 
     // copy folderParam properties to Folder
-    Object.assign(RDV, rdvParam);
+    Object.assign(rdv, rdvParam);
 
     await rdv.save();
 }

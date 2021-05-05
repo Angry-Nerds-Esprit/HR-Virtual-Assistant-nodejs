@@ -7,5 +7,6 @@ mongoose.Promise = global.Promise;
 module.exports = {
     User: require('../users/user.model'),
     Profile :require('../profile_mangement/profile.model'),
-    Folder: require('../folder/folder.model')
+    Folder: require('../folder/folder.model'),
+    Rdv: require('../rdv/rdv.model')
 };

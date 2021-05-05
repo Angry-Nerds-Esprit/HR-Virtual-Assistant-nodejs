@@ -33,7 +33,9 @@
         "run": "^1.4.0",
         "tesseract.js": "^2.0.0-alpha.15",
         "test": "^0.6.0",
-        "uwords": "0.0.5"
+        "uwords": "0.0.5",
+        "multer-storage-cloudinary": "^4.0.0",
+        "cloudinary": "^1.23.0"
     },
     "devDependencies": {
         "nodemon": "^2.0.4"

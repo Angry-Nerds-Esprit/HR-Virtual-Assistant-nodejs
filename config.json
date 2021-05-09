@@ -1,4 +1,5 @@
 ﻿{
-    "connectionString": "mongodb://localhost/SonicHr",
+    "connectionString":     "mongodb+srv://aziz:123321@cluster0.wbo0f.mongodb.net/SonicHr?retryWrites=true&w=majority",
     "secret": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING"
 }
+

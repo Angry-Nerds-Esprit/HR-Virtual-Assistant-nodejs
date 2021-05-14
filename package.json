@@ -9,13 +9,17 @@
     },
     "scripts": {
         "start": "node ./server.js",
-        "start:dev": "nodemon ./server.js"
+        "start:dev": "nodemon ./server.js",
+        "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix yarn build --prefix client"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
+        "cloudinary": "^1.23.0",
         "cors": "^2.8.5",
+        "cowsay": "^1.4.0",
         "cros": "^1.0.1",
+        "dotenv": "^9.0.2",
         "ejs": "^3.1.6",
         "express": "^4.17.1",
         "express-jwt": "^6.0.0",
@@ -23,6 +27,7 @@
         "mongodb": "^3.6.5",
         "mongoose": "^5.12.3",
         "multer": "^1.4.2",
+        "multer-storage-cloudinary": "^4.0.0",
         "node-email-extractor": "^1.0.3",
         "node-tesseract": "^0.2.7",
         "npm": "^7.7.5",
@@ -33,9 +38,7 @@
         "run": "^1.4.0",
         "tesseract.js": "^2.0.0-alpha.15",
         "test": "^0.6.0",
-        "uwords": "0.0.5",
-        "multer-storage-cloudinary": "^4.0.0",
-        "cloudinary": "^1.23.0"
+        "uwords": "0.0.5"
     },
     "devDependencies": {
         "nodemon": "^2.0.4"

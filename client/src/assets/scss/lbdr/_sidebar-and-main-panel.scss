@@ -1,0 +1,21 @@
+.sidebar{
+    &[data-color="black"]:after{
+        @include icon-gradient(
+        #111, rgba(#8b8b8b,.7));
+    }
+    .logo-img img {
+      max-width: 200px;
+      max-height: 150px;
+    }
+}
+
+@media (max-width: 991px){
+  .sidebar .nav > li.active.active-pro {
+    position: relative;
+    bottom: unset;
+  }
+}
+
+#bodyClick {
+  position: absolute;
+}

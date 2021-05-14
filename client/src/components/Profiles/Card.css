@@ -1,0 +1,43 @@
+body{
+    background: #eee;
+    scroll-behavior: smooth;
+}
+span{
+    font-size:15px;
+}
+a{
+  text-decoration:none; 
+  
+ 
+}
+.box{
+    padding:60px 0px;
+}
+
+.box-part{
+    background:#FFF;
+    border-radius:0;
+    padding:60px 10px;
+    margin:30px 0px;
+    transition: transform .2s;
+    
+}
+.text{
+    margin:20px 0px;
+}
+
+.fa{
+     color:#4183D7;
+}
+#a {
+    scroll-behavior: smooth;
+  }
+
+  
+.box-part:hover{
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }  
+
+#pop {
+    max-width: 1000px;
+  }

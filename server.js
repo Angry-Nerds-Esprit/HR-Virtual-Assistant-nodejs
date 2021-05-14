@@ -39,5 +39,5 @@ if(process.env.NODE_ENV === 'production'){
 
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
 const server = app.listen(port, function () {
-    console.log('Server listening on port ' + port +'with mode '+ process.env.NODE_ENV);
+    console.log('Server listening on port ' + port +'with mode '+ process.env.NODE_ENV + process.env.baseURL);
 });

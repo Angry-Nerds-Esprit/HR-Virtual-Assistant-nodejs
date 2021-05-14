@@ -20,8 +20,8 @@ const ImageUpload = () => {
     const formdata = new FormData();
 
     formdata.append("image", fileData);
-
-    await Axios.post(`${process.env.baseURL}/api/image`, formdata, {
+    //${process.env.baseURL}
+    await Axios.post(`/api/image`, formdata, {
              headers: authHeader()
     })
     .then(response => { 

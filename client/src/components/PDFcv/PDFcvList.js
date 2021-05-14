@@ -22,7 +22,8 @@ export default class PostList extends React.Component {
   }  
     
   componentDidMount() {  
-    axios.get(`${process.env.baseURL}/api/allPdfCv`,{
+    //${process.env.baseURL}
+    axios.get(`/api/allPdfCv`,{
         headers: authHeader()
 })  
       .then(res => {  
@@ -32,7 +33,8 @@ export default class PostList extends React.Component {
   }  
     
   deleteRow(id, e){  
-    axios.delete(`${process.env.baseURL}/api/delete/${id}`,{
+    //${process.env.baseURL}
+    axios.delete(`/api/delete/${id}`,{
         headers: authHeader()
 })  
       .then(res => {  

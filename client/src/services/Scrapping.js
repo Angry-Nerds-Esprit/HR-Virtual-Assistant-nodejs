@@ -10,8 +10,8 @@ function startScrapping(nbp, idf, nidUser, skills, region) {
         method: 'POST',
         headers: authHeader()
     };
-
-    return fetch(`${process.env.baseURL}/scrape/?query=${query2}&nbp=${nbp}&idf=${idf}&nidUser=${nidUser}`, requestOptions).then(handleResponse);
+//${process.env.baseURL}
+    return fetch(`/scrape/?query=${query2}&nbp=${nbp}&idf=${idf}&nidUser=${nidUser}`, requestOptions).then(handleResponse);
 }
 /*
 function startScrappingChangeAccount(nbp, idf, nidUser, skills, region,userNameAccount, passowrdAccount) {
@@ -32,8 +32,9 @@ function startScrappingChangeAccount(nbp, idf, nidUser, skills, region,userNameA
 }*/
 const startScrappingChangeAccount =  (nbp, idf, nidUser, skills, region,userNameAccount, passowrdAccount)=> {
     console.log(userNameAccount,passowrdAccount)
+    //${process.env.baseURL}
     var query2 = "site:linkedin.com/in/ AND" + "\"" + skills.join("\" \"") + "\"" + " AND \"" + region + "\""
-    return http.post(`${process.env.baseURL}/scrape/changeAccount?query=${query2}&nbp=${nbp}&idf=${idf}&nidUser=${nidUser}`, {
+    return http.post(`/scrape/changeAccount?query=${query2}&nbp=${nbp}&idf=${idf}&nidUser=${nidUser}`, {
         'username': userNameAccount,
         'passowrd': passowrdAccount
         });

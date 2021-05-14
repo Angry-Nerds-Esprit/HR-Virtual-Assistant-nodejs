@@ -14,7 +14,7 @@ app.use(cors());
 
 
 // use JWT auth to secure the api
-app.use(jwt());
+//sapp.use(jwt());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

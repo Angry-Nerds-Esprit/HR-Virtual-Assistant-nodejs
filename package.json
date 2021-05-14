@@ -12,7 +12,7 @@
         "start:dev": "nodemon ./server.js",
         "build-client":"cd client && yarn install",
         "install-client":"cd client && yarn run build",
-        "heroku-postbuild":"npm install && npm run build-client && npm run install-client "
+        "heroku-postbuild":"npm run build-client && npm run install-client "
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",

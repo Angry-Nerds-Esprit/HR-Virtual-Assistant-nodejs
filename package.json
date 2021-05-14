@@ -10,7 +10,9 @@
     "scripts": {
         "start": "node ./server.js",
         "start:dev": "nodemon ./server.js",
-        "heroku-postbuild":"npm install && cd client && yarn run build "
+        "build-client":"cd client && yarn install",
+        "install-client":"cd client && yarn run build",
+        "heroku-postbuild":"npm install && npm run build-client && npm run install-client "
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",

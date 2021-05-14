@@ -21,7 +21,7 @@ const ImageUpload = () => {
 
     formdata.append("image", fileData);
 
-    await Axios.post('http://localhost:4000/api/image', formdata, {
+    await Axios.post(`${process.env.baseURL}/api/image`, formdata, {
              headers: authHeader()
     })
     .then(response => { 
@@ -32,8 +32,8 @@ const ImageUpload = () => {
     });
 
      Axios({
-      url: 'http://localhost:4000/api/pdfdownload',
-      method: 'GET',
+      url: `${process.env.baseURL}/api/pdfdownload`,
+            method: 'GET',
       responseType: 'blob', // important
       headers: authHeader(),
     }).then((response) => {
